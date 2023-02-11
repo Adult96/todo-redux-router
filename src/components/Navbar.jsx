@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
 import { add } from 'utils/modules/todo';
@@ -9,10 +9,19 @@ export default function Navbar() {
   const [comment, setComment] = useState('');
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    return () => {
+      setTitle('');
+      setComment('');
+    };
+  }, []);
+
   const handleSubmit = e => {
     e.preventDefault();
     if (!title || !comment) return;
     dispatch(add({ id: uuidv4(), title, comment, isDone: false }));
+    setTitle('');
+    setComment('');
   };
 
   return (
