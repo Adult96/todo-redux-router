@@ -1,8 +1,8 @@
-import Navbar from 'components/Navbar';
 import { Provider } from 'react-redux';
-import { Outlet } from 'react-router-dom';
 import store from 'utils/config/configStore';
 import styled from 'styled-components';
+import Navbar from 'components/Navbar';
+import Home from 'pages/Home';
 
 export default function App() {
   return (
@@ -13,7 +13,7 @@ export default function App() {
       </Header>
       <Provider store={store}>
         <Navbar />
-        <Outlet />
+        <Home />
       </Provider>
     </>
   );
