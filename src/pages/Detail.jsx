@@ -59,4 +59,8 @@ const Text = styled.p`
   margin: 3rem 0;
   font-size: ${props => props.fontSize};
   font-weight: ${props => props.weight};
+
+  word-break: break-all;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
