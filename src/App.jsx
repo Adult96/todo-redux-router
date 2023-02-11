@@ -1,5 +1,7 @@
 import Navbar from 'components/Navbar';
+import { Provider } from 'react-redux';
 import { Outlet } from 'react-router-dom';
+import store from 'utils/config/configStore';
 import styled from 'styled-components';
 
 export default function App() {
@@ -9,8 +11,10 @@ export default function App() {
         <h2>My Todo List</h2>
         <h2>React</h2>
       </Header>
-      <Navbar />
-      <Outlet />
+      <Provider store={store}>
+        <Navbar />
+        <Outlet />
+      </Provider>
     </>
   );
 }

@@ -1,12 +1,21 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
+import { add } from 'utils/modules/todo';
+import { v4 as uuidv4 } from 'uuid';
 
 export default function Navbar() {
   const [title, setTitle] = useState('');
   const [comment, setComment] = useState('');
+  const dispatch = useDispatch();
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    dispatch(add({ id: uuidv4(), title, comment, isDone: false }));
+  };
 
   return (
-    <Form>
+    <Form onSubmit={handleSubmit}>
       <div>
         제목
         <Input
