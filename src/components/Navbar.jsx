@@ -1,14 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 export default function Navbar() {
+  const [title, setTitle] = useState('');
+  const [comment, setComment] = useState('');
+
   return (
     <Form>
       <div>
         제목
-        <Input type='text' />
+        <Input
+          type='text'
+          value={title}
+          onChange={e => setTitle(e.target.value)}
+        />
         내용
-        <Input type='text' />
+        <Input
+          type='text'
+          value={comment}
+          onChange={e => setComment(e.target.value)}
+        />
       </div>
       <Btn>추가하기</Btn>
     </Form>
