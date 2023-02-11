@@ -11,6 +11,7 @@ export default function Navbar() {
 
   const handleSubmit = e => {
     e.preventDefault();
+    if (!title || !comment) return;
     dispatch(add({ id: uuidv4(), title, comment, isDone: false }));
   };
 
