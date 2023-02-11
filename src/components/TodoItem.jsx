@@ -19,7 +19,9 @@ export default function TodoItem({ item }) {
 
   return (
     <Item>
-      <Link to={`/detail/${id}`}>상세보기</Link>
+      <Link to={`/detail/${id}`} state={{ todo: item }}>
+        상세보기
+      </Link>
       <Text fontSize='2rem' clamp={3}>
         {title}
       </Text>

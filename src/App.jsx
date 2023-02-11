@@ -6,7 +6,7 @@ import Home from 'pages/Home';
 
 export default function App() {
   return (
-    <>
+    <Section>
       <Header>
         <h2>My Todo List</h2>
         <h2>React</h2>
@@ -15,9 +15,13 @@ export default function App() {
         <Navbar />
         <Home />
       </Provider>
-    </>
+    </Section>
   );
 }
+
+const Section = styled.section`
+  padding: 1rem;
+`;
 
 const Header = styled.header`
   display: flex;

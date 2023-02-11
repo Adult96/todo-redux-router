@@ -42,7 +42,6 @@ const todo = (state = initState, action) => {
       );
     default:
       return state;
-    // throw new Error(`에러발생 state:${state} payload:${items}`);
   }
 };
 

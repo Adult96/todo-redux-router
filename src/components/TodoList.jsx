@@ -4,10 +4,9 @@ import { v4 as uuidv4 } from 'uuid';
 import styled from 'styled-components';
 
 export default function TodoList({ todo, doneCheck, children }) {
-  console.log(todo);
   return (
     <>
-      {children}
+      <Title>{children}</Title>
       <List>
         {todo
           .filter(value => value.isDone === doneCheck)
@@ -18,6 +17,11 @@ export default function TodoList({ todo, doneCheck, children }) {
     </>
   );
 }
+
+const Title = styled.div`
+  font-size: 2rem;
+  font-weight: bold;
+`;
 
 const List = styled.div`
   display: flex;

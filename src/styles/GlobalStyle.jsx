@@ -15,7 +15,6 @@ body {
   max-width: 1200px;
   min-width: 800px;
   margin: auto;
-  padding: 1rem;
 }
 
 code {
