@@ -28,16 +28,21 @@ export const change = value => {
 let initState = [];
 
 const todo = (state = initState, action) => {
-  console.log(state, action);
+  const item = action.payload;
   switch (action.type) {
     case type.ADD:
-      return [...state, { ...action.payload }];
+      return [...state, { ...item }];
     case type.DELETE:
-      return state;
+      return state.filter(stateItem => stateItem.id !== item.id);
     case type.CHANGE:
-      return state;
+      return state.map(stateItem =>
+        stateItem.id === item.id
+          ? { ...stateItem, isDone: !stateItem.isDone }
+          : stateItem
+      );
     default:
       return state;
+    // throw new Error(`에러발생 state:${state} payload:${items}`);
   }
 };
 

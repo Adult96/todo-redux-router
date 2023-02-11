@@ -1,10 +1,22 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import theme from 'styles/theme';
+import { change, deleteItem } from 'utils/modules/todo';
 
 export default function TodoItem({ item }) {
   const { id, title, comment, isDone } = item;
+  const dispatch = useDispatch();
+
+  const handleDelete = () => {
+    dispatch(deleteItem({ ...item }));
+  };
+
+  const handleChange = () => {
+    dispatch(change({ ...item }));
+  };
+
   return (
     <Item>
       <Link to={`/detail/${id}`}>상세보기</Link>
@@ -13,8 +25,12 @@ export default function TodoItem({ item }) {
       </Text>
       <Text clamp={2}>{comment}</Text>
       <BtnBox>
-        <Btn borderColor={theme.redPink}>삭제하기</Btn>
-        <Btn borderColor={theme.melonGreen}>{isDone ? '취소!' : '완료!'}</Btn>
+        <Btn borderColor={theme.redPink} onClick={handleDelete}>
+          삭제하기
+        </Btn>
+        <Btn borderColor={theme.melonGreen} onClick={handleChange}>
+          {isDone ? '취소!' : '완료!'}
+        </Btn>
       </BtnBox>
     </Item>
   );
