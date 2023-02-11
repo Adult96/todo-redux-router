@@ -1,11 +1,21 @@
 import { Outlet } from 'react-router-dom';
+import styled from 'styled-components';
 
-function App() {
+export default function App() {
   return (
     <>
+      <Header>
+        <h2>My Todo List</h2>
+        <h2>React</h2>
+      </Header>
       <Outlet />
     </>
   );
 }
 
-export default App;
+const Header = styled.header`
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem;
+  border: 1px solid black;
+`;
